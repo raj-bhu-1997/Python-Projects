@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+  {% if user.is_authenticated %}
+   {% include 'socialapp/sidenav.html' %}
+  {% endif %}
+  
+{% for post in my_post %}    
+  <div class="home-post">
+      <div class="container user-profile">
+        <img src="{{ post.author.profile.image.url }}" />
+        <div class="container user-name">
+          <p>{{ post.author }}</p>
+          <small>{{ post.created_on }}</small>
+        </div>
+      </div>
+     {% if post.text %}
+    <p class="post-text">{{ post.text }}<a href="">  Click here to read more</a></p>
+    {% endif %}
+    
+    {% if post.image %}
+    <img src="{{ post.image.url }}" class="post-img">
+    {% endif %}
+     <div class="activity-row">
+      <div class="activity-icon-left d-flex flex-row">
+       <form action="{% url 'socialapp:add-like' post.pk %}" method="POST">
+           {% csrf_token %}
+           <input type="hidden" name="next" value="{{ request.path }}">
+           <button type="submit" style="background-color:white; border:none; box-shadow:none;"><i class="far fa-thumbs-up like"><span>{{ post.likes.all.count }}</span></i></button>
+         </form>
+          <form action="{% url 'socialapp:add-dislike' post.pk %}" method="POST">
+           {% csrf_token %}
+           <input type="hidden" name="next" value="{{ request.path }}">
+           <button type="submit" style="background-color:white; border:none; box-shadow:none;"><i class="far fa-thumbs-down dislike"><span>{{ post.dislikes.all.count }}</span></i></button>
+         </form>
+      </div>
+      
+      <div class="activity-icon-right">
+        
+        {% if request.user == post.author %}
+            <a href="{% url 'socialapp:post-update' post.pk %}"><i class="far fa-edit mx-2 edit"></i></a>
+            <a href="{% url 'socialapp:post-delete' post.pk %}"><i class="far fa-trash-alt mx-2 delete"></i></a>
+        {% endif %}    
+            <a href="{% url 'socialapp:post-detail' post.pk %}"><i class="far fa-comment mx-2 comment"></i></a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+      </div>
+    </div>
+</div> 
+{% endblock content %}

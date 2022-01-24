@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="mydiv">
+    <div class="custom-shape-divider-bottom-1631939715">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+    </div>
+  </div>
+<div class="container mydiv2">
+  <div class="card shadow">
+    <div class="container mydiv3">
+      <div class="my-5 mx-5">
+        <a href="{% url 'socialapp:follower-list' profile.pk %}">Followers: {{ no_of_follower }}
+        </a>
+        {% if request.user == user %}
+        {% else %}
+        {% if is_following %}
+        <form action="{% url 'socialapp:remove-follower' profile.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-danger">Unfollow</button>
+        </form>
+        {% else %}
+        <form action="{% url 'socialapp:add-follower' profile.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-success">Follow</button>
+        </form>
+        {% endif %}
+        {% endif %}
+      </div>
+     <h3>Profile details</h3>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <td>{{ profile.name }}</td>
+        </tr>
+        <tr>
+          <th>Bio</th>
+          <td>{{ profile.bio }}</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td>{{ profile.location }}</td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Rajesh</th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Rajesh</th>
+        </tr>
+      </table>
+  </div>
+  </div>
+</div>
+<div class="container">
+  <img src="{{ profile.image.url }}" class="profile-pic" alt="">
+</div>
+
+{% endblock %}

@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    font-family: "Lato", sans-serif;
+    width: 100%;
+    background-color: #efefef;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+  .mydiv{
+    position: relative;
+    min-height: 50vh;
+    background-image: linear-gradient(rgba(0,0,255,0.5), rgba(0,0,255,0.5)), url('/user1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    background-size: cover;
+    
+  }
+  .mydiv2{
+    margin-top:-40%;
+    width: 90%;
+    min-height:500%;
+  }
+  
+  .profile-pic{
+    width: 35%;
+    height: 20%;
+    margin-top: -270%;
+    margin-left: 30%;
+    position: relative;
+    border: 2px solid white;
+    border-radius: 20px;
+    z-index: 3;
+  }
+ .mydiv3{
+   margin-top: 150px;
+ }
+ .custom-shape-divider-bottom-1631939715 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1631939715 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1631939715 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1631939715 svg {
+        width: calc(110% + 1.3px);
+        height: 150px;
+    }
+}
+
+.card #mypost{
+  display: flex;
+}
+
+.card #mypost .mypost-author{
+  display: flex;
+  margin-left: 10px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.card #mypost .mypost-author h6{
+  color: blue;
+}
+.card #mypost .mypost-author p{
+  font-family: 'Carattere', cursive;
+}
+
+.mypost-card{
+  border: 1px solid #8e96a3;
+  border-radius: 20px;
+  box-shadow: 5px 5px 30px #D3D7DA;
+}
+.card-body h5{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card-body p{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+}
+.like-dislike .likes .like{
+  font-size: 20px;
+}
+
+.like-dislike .likes .dislike{
+  font-size: 20px;
+  margin-right: 70px;
+}
+.like-dislike .edit-delete .edit{
+  font-size: 20px;
+  color: black;
+}
+.like-dislike .edit-delete .delete{
+  font-size: 20px;
+  color: black;
+}
+.like-dislike .edit-delete .comment{
+  font-size: 20px;
+  color: black;
+  margin-top: -1px;
+}
+.home-post{
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 0 10px;
+  background-color: white;
+  
+}
+.home-post .user-profile{
+  display: flex;
+  margin-left: 10px;
+}
+.home-post .user-profile img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.home-post .user-profile .user-name p{
+  margin-top: 15px;
+  margin-bottom: 0px;
+  font-weight: 500;
+  color: blue;
+}
+.post-text{
+  padding: 15px 0 10px 5px;
+}
+.post-text a{
+  text-decoration: none;
+}
+.post-img{
+  width: 100%;
+}
+
+.activity-row{
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+.activity-row .activity-icon-left i{
+  display: float;
+  margin:10px;
+  color:black;
+  font-size: 20px;
+}
+
+.activity-row .activity-icon-right a{
+  margin:5px;
+  color:black;
+  font-size: 20px;
+}
+
+/****** Post comment *******/
+
+.comment-system{
+  width: 100%;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  padding:10px;
+}
+.comment-system div{
+   text-align: center;
+}
+.comment-system p{
+  margin-top: 30px;
+  padding-bottom: 15px;
+  
+}
+.comment-system img{
+  width: 100%;
+}
+
+.enter-comment{
+  padding-top: 40px;
+  display: flex;
+  
+}
+.enter-comment textarea{
+  width: 280px;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding:10px;
+}
+.enter-comment button{
+  background-color: white;
+  box-shadow: none;
+  border: none;
+  font-size: 25px;
+  margin-top: -10px;
+  color: blue;
+}
+.user-comments{
+  padding: 5px;
+  background-color: #efefef;
+  border-radius: 10px;
+}
+.user-comments .user{
+  display: flex;
+  align-items: center;
+
+}
+.user-comments .user img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.user-comments .user p strong{
+  margin-right: 10px;
+}
+.user-comments .comment{
+  text-align: left;
+  margin-top: -30px;
+  padding-left:10px;
+ 
+}

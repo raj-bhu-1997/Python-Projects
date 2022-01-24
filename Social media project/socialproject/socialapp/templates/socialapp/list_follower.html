@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-5">
+  {% for follower in followers %}
+  <div class="container">
+    <h4>{{ follower.profile.name }}</h4>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

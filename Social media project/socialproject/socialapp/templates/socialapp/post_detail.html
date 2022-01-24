@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+   <div class="container mt-3">
+    <div class="d-grid mt-5">
+      <a href="{% url 'socialapp:welcome' %}" class="btn btn-secondary ">Back to Home</a>
+    </div>
+    
+    <!-------- Comment system start ------->
+    
+    <div class="container comment-system mt-3">
+      <div class="container">
+      <h5>{{ post.title }}</h5>
+      </div>
+      <p>{{ post.text }}</p>
+      {% if post.image %}
+      <img src="{{ post.image.url }}" alt="">
+      {% endif %}
+      <div class="container enter-comment">
+      <div class="container">
+      <form action="" method="POST">
+       {% csrf_token %}
+       {{ form|crispy }}
+       </div>
+      <div class="d-grid mt-3">
+       <button><i class="far fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+  {% for comment in comments %}
+  <div class="container user-comments mt-3">
+    <div class="container user">
+      <img src="{{ comment.author.profile.image.url }}" alt="">
+      <p><strong>{{ comment.author }}</strong><small>{{ comment.created_on }}</small></p>
+    </div>
+    <div class="comment">
+    <p>{{ comment.comments }}</p>
+    </div>
+  </div>
+ {% endfor %}  
+    
+    <!----- comment system end ------->
+  </div>
+</div>
+{% endblock content %}

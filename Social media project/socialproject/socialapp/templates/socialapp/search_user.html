@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-5">
+  {% for users in user_list %}
+  <div class="container mb-4 shadow" style="display:flex; justify-content:space-between">
+  <div class="container border-bottom">
+    <img src="{{ users.image.url }}" alt="" width="100" height="100" class="rounded-circle"/>
+  </div>
+  <div class="container">
+    <a href="{% url 'socialapp:profile' users.pk %}">@{{ users.user }}</a>
+    <p>{{ users.location }}</p>
+    <p>No of Followers : {{ users.followers.all.count }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

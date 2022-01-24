@@ -1,0 +1,26 @@
+
+<div class="container">
+<div id="mySidenav" class="sidenav" style="float: left;">
+  <a href="javascript:void(0)"
+  class="closebtn"
+  onclick="closeNav()">&times;</a>
+  <div class="container mt-5 d-flex flex-row">
+    <a href="{% url 'socialapp:profile' user.profile.pk %}">Profile</a>
+  {% if request.user == user %}
+  <a href="{% url 'socialapp:profile-edit' user.profile.pk %}"><i class="fas fa-user-edit mx-3"></i></a>
+  {% endif %}
+  </div>
+  
+  <a href="#" style="clear:both;">Services</a>
+  <a href="#">Career</a>
+  <a href="#">Contact</a>
+  <a href="{% url 'socialapp:account_logout' %}">Logout</a>
+
+</div>
+</div>
+
+
+
+<span style="font-size:30px;cursor:
+pointer"onclick="openNav()">☰ </span>
+
